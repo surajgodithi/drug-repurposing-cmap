@@ -63,3 +63,14 @@ The goal is to identify **differentially expressed genes (DEGs)** between **tumo
 - [ ] Prepare CMap input (top 150 up + 150 down)  
 - [ ] Submit to CMap and analyze drug predictions  
 - [ ] Summarize candidate compounds  
+
+---
+
+## ⚙️ Reproducibility
+All analysis is done in R (v4.x).  
+Required packages can be installed with:
+
+```r
+if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+BiocManager::install(c("limma", "edgeR", "GEOquery", "recount3"))
+install.packages(c("tidyverse", "pheatmap", "R.utils"))
