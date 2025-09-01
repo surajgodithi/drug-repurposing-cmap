@@ -21,7 +21,7 @@ The goal is to identify **differentially expressed genes (DEGs)** between **tumo
 3. **Visualization:**  
    - Volcano plot shows clear separation of upregulated (red) and downregulated (blue) genes:  
 
-   ![Volcano Plot](02ae031d-ac51-4415-a171-ddecf3168e7a.png)
+   ![Volcano Plot](figures/volcano_plot.png)
 
 4. **Next Steps:**  
    - Extract **top 150 upregulated** and **top 150 downregulated** genes  
