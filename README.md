@@ -31,10 +31,17 @@ The goal is to identify **differentially expressed genes (DEGs)** between **tumo
 ---
 
 ## 📦 Tools & Packages
-### R / Bioconductor
-- `DESeq2`, `limma`, `edgeR` → differential expression  
-- `GEOquery` → dataset retrieval  
-- `biomaRt`, `org.Hs.eg.db`, `AnnotationDbi` → gene annotation  
+
+### Bioconductor
+- limma — linear modeling for differential expression
+- edgeR — count-based RNA-seq DE with negative binomial models
+- GEOquery — download/parse GEO series/platforms
+- recount3 — access uniformly processed RNA-seq data
+
+### CRAN
+- tidyverse — dplyr, ggplot2, readr, tibble, etc.
+- pheatmap — heatmaps
+- R.utils — utilities (e.g., file ops, gunzip helpers)
 
 ### Visualization
 - `ggplot2`, `EnhancedVolcano`, `pheatmap`, `ComplexHeatmap`  
