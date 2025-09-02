@@ -1,8 +1,8 @@
 library(GEOquery)
 library(tidyverse)
 library(recount3)
-
-setwd("F:/drug_repurposing")
+# set directory
+setwd("...")
 dir.create("data", showWarnings = FALSE)
 dir.create("results", showWarnings = FALSE)
 dir.create("figures", showWarnings = FALSE)
