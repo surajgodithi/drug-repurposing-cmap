@@ -59,7 +59,7 @@ The goal is to identify **differentially expressed genes (DEGs)** between **tumo
 ## 🔮 Roadmap
 - [x] Download and preprocess GEO dataset  
 - [x] Run DEG analysis (tumor vs normal)  
-- [x] Generate volcano plot + DEG summary  
+- [x] Generate plot + DEG summary  
 - [ ] Prepare CMap input (top 150 up + 150 down)  
 - [ ] Submit to CMap and analyze drug predictions  
 - [ ] Summarize candidate compounds  
