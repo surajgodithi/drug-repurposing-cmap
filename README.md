@@ -132,16 +132,111 @@ This analysis identified **PKC pathway modulation** as a priority therapeutic st
 
 ---
 
-## 🔮 Project Completion
-- [x] Download and preprocess GEO dataset  
-- [x] Run differential expression analysis (tumor vs normal)  
-- [x] Generate volcano plot and DEG summary  
-- [x] Submit gene signature to CMap
-- [x] Analyze top 10 candidate compounds with connectivity scores  
-- [ ] Literature validation of top 3 compounds in colorectal cancer
-- [ ] Cross-reference findings with existing CRC therapeutic targets
-- [ ] Document limitations and future experimental directions
-- [ ] Finalize project report and code repository
+## Literature Validation of Top 3 Compounds
+
+### 1. PKC Activators in Colorectal Cancer
+
+**Current Evidence:**
+- PKCδ-selective activators show promise in colon cancer therapy, with Roy-Bz potently inhibiting proliferation of colon cancer cells by inducing PKCδ-dependent mitochondrial apoptotic pathways
+- PKCβ is the major PKC isoform expressed by colon cancer, and specific mutations can lead to increased growth rate and cell viability
+- However, many clinical trials of PKC inhibitors in cancers showed no significant clinical benefits, limiting cancer therapeutic strategies targeting PKC alone
+
+**Assessment:** PKC activators show preclinical promise but clinical translation remains challenging. The predominance of PKC activators in your CMap results aligns with research showing PKC pathway dysregulation in colorectal cancer.
+
+### 2. Vinorelbine in Colorectal Cancer
+
+**Current Evidence:**
+- A prospective multicentre phase II clinical study of vinorelbine in BRAF V600E mutated metastatic colorectal cancer did not show signs of clinical activity despite encouraging preclinical data
+- Ongoing clinical trials are testing vinorelbine specifically in advanced BRAF-like colon cancer
+- Vinorelbine shows activity in gastrointestinal cancers as a tubulin inhibitor that binds tubulin and inhibits microtubule formation
+
+**Assessment:** Vinorelbine has been tested in colorectal cancer with mixed results. While it failed in BRAF-mutated patients, ongoing trials suggest continued interest in specific molecular subtypes.
+
+### 3. Rigosertib (PLK Inhibitor) in Colorectal Cancer
+
+**Current Evidence:**
+- Rigosertib shows potent anti-tumor responses in colorectal cancer by inhibiting RAS signaling pathway and suppressing tumor cell proliferation
+- Phase I trials demonstrate rigosertib can be administered with tolerable toxicity profile and shows evidence of antitumor activity in advanced solid tumors
+- Clinical progress has been hampered by lack of understanding of its mechanism of action, as it's considered a multi-target inhibitor
+
+**Assessment:** Rigosertib shows the strongest literature support for colorectal cancer activity among your top hits, with documented efficacy against RAS-mutated colorectal cancer cells.
+
+---
+
+## Cross-Reference with Existing CRC Therapeutic Targets
+
+### Established CRC Therapeutic Targets:
+- **EGFR pathway:** Cetuximab, panitumumab (anti-EGFR antibodies)
+- **VEGF pathway:** Bevacizumab (anti-angiogenic)
+- **BRAF pathway:** Encorafenib + cetuximab combinations
+- **MSI-H tumors:** Immune checkpoint inhibitors
+- **HER2 amplification:** Trastuzumab + pertuzumab
+- **KRAS G12C:** Sotorasib, adagrasib
+
+### Alignment with Your Findings:
+**Strong alignment:**
+- **Rigosertib** directly targets RAS signaling, complementing approved KRAS inhibitors
+- **Aurora kinase inhibitors** (MLN-8054) target mitotic pathways relevant to rapidly dividing cancer cells
+
+**Novel pathways identified:**
+- **PKC modulation** represents an underexplored therapeutic avenue in CRC
+- **Glycogen synthase kinase inhibition** (SB-216763) may affect Wnt/β-catenin signaling, a key CRC pathway
+
+**Limited alignment:**
+- **Vinorelbine** (tubulin inhibitor) doesn't target established CRC molecular drivers
+- **Nucleophosmin inhibitors** have limited precedent in CRC therapy
+
+---
+
+## Study Limitations and Future Directions
+
+### Methodological Limitations
+
+**1. Cell Line vs. Patient Tissue Discrepancy**
+- CMap uses immortalized cancer cell lines that may not recapitulate primary tumor biology
+- Gene expression patterns in cell culture may differ from patient tumors
+- Drug responses in vitro often don't translate to clinical efficacy
+
+**2. Gene Expression vs. Functional Outcomes**
+- Reversing gene expression signatures doesn't guarantee tumor growth inhibition
+- Drug connectivity scores don't predict therapeutic windows or toxicity
+- Multiple resistance mechanisms may override gene expression changes
+
+**3. Database and Technical Limitations**
+- CMap Touchstone 1.0 represents a subset of available compounds (~1,300)
+- Gene symbol conversion led to ~8% gene loss (282→291 genes analyzed)
+- Single time-point analysis doesn't capture dynamic drug responses
+
+**4. Biological Context Limitations**
+- Colorectal cancer molecular subtypes (MSI vs MSS, KRAS vs BRAF mutations) not considered
+- Tumor microenvironment effects not captured in cell line data
+- Patient-to-patient heterogeneity not addressed
+
+### Future Experimental Directions
+
+**Immediate Validation Steps:**
+1. **Test top 3 compounds** (rigosertib, vinorelbine, PKC activators) in colorectal cancer cell lines (HCT116, SW480, LS174T)
+2. **Validate gene expression changes** using qPCR for top 20 upregulated/downregulated genes
+3. **Assess growth inhibition** using MTT/CellTiter-Glo viability assays
+4. **Confirm mechanism of action** through pathway-specific assays
+
+**Advanced Validation:**
+1. **Patient-derived organoid models** to better recapitulate primary tumor biology
+2. **Combination therapy screening** since single-agent PKC targeting has shown limited clinical success
+3. **Molecular subtype-specific testing** (KRAS-mutant vs BRAF-mutant vs microsatellite unstable)
+4. **In vivo xenograft validation** for most promising compounds
+
+**Clinical Translation Considerations:**
+1. **Biomarker development** to identify patients most likely to respond
+2. **Optimal dosing and scheduling** based on pharmacokinetic studies
+3. **Combination strategies** with established CRC therapeutics
+4. **Resistance mechanism studies** to predict and overcome treatment failure
+
+### Conclusion
+
+This computational drug repurposing analysis successfully identified biologically plausible therapeutic candidates for colorectal cancer, with **rigosertib showing the strongest literature support**. The predominance of PKC activators suggests an underexplored therapeutic pathway worthy of further investigation. However, the study limitations emphasize that these findings represent promising starting points for experimental validation rather than clinical recommendations.
+
+The methodology demonstrates the power of connectivity mapping for hypothesis generation while highlighting the critical need for experimental validation in appropriate disease models.
 
 ---
 
