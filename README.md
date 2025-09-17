@@ -33,61 +33,103 @@ The goal is to identify **differentially expressed genes (DEGs)** between **tumo
 ## 📦 Tools & Packages
 
 ### Bioconductor
-- limma — linear modeling for differential expression
-- edgeR — count-based RNA-seq DE with negative binomial models
-- GEOquery — download/parse GEO series/platforms
-- recount3 — access uniformly processed RNA-seq data
+- **limma** — linear modeling for differential expression  
+- **edgeR** — count-based RNA-seq DE with negative binomial models  
+- **GEOquery** — download/parse GEO series/platforms  
+- **recount3** — access uniformly processed RNA-seq data  
 
 ### CRAN
-- tidyverse — dplyr, ggplot2, readr, tibble, etc.
-- pheatmap — heatmaps
-- R.utils — utilities (e.g., file ops, gunzip helpers)
+- **tidyverse** — dplyr, ggplot2, readr, tibble, etc.  
+- **pheatmap** — heatmaps  
+- **R.utils** — utilities (e.g., file ops, gunzip helpers)  
 
 ### Visualization
-- `ggplot2`, `EnhancedVolcano`, `pheatmap`, `ComplexHeatmap`  
+- **ggplot2**, **EnhancedVolcano**, **pheatmap**, **ComplexHeatmap**  
 
 ---
 
-## 🧪 Results: CMap Analysis
+## 📊 Differential Expression Results
+- **2,882 significant DEGs** detected (adj. p < 0.05)  
+  - **Upregulated genes (n=1,306):** higher expression in tumor  
+  - **Downregulated genes (n=1,576):** lower expression in tumor  
+- Volcano plot confirms clear separation of tumor vs normal expression profiles.  
+- Gene lists prepared for CMap submission (top 150 up + 150 down).  
 
-After identifying **2,882 significant differentially expressed genes (DEGs)** in colorectal tumor vs normal samples (1,306 upregulated, 1,576 downregulated), we submitted the **top 150 upregulated** and **top 150 downregulated** genes to the **Connectivity Map (CMap, Touchstone 1.0)**.  
+---
 
-CMap compares our tumor “signature” against thousands of **drug-induced gene expression profiles** to identify compounds that could *reverse* the cancer state.
+## 🧪 Detailed Results Analysis (CMap)
 
-### 🔹 Key Findings
-- Several drug classes showed **strong negative connectivity scores (τ ≈ –90 to –100)**, indicating they may reverse the colorectal tumor gene signature.
-- The most consistent signals included:
+We submitted the DEG signature to **CMap (Touchstone 1.0)**.  
+CMap compares our tumor profile against thousands of **drug-induced gene expression signatures**.  
+- **Compounds tested:** ~2,400  
+- **Output metric:** Connectivity score (τ), ranges from +100 (mimics tumor) to –100 (reverses tumor)  
+- **Interpretation:** Strong *negative* τ scores indicate compounds that may counteract tumor programs.  
 
-| Drug Class              | Representative Compounds         | Mechanism of Action (MoA)                  |
-|--------------------------|----------------------------------|---------------------------------------------|
-| **PKC activators**       | Prostratin, Ingenol, PMA         | Activate protein kinase C signaling |
-| **HDAC inhibitors**      | Vorinostat, Trichostatin A       | Epigenetic regulators (histone deacetylase inhibition) |
-| **EGFR inhibitors**      | Gefitinib, Erlotinib             | Block EGFR tyrosine kinase signaling |
-| **PI3K/mTOR inhibitors** | Rapamycin, PI-103                | Target survival/proliferation signaling |
-| **Topoisomerase inhibitors** | Camptothecin, Etoposide     | Interfere with DNA replication |
-| **Aurora kinase inhibitors** | Alisertib                   | Disrupt mitotic checkpoints |
-| **SRC inhibitors**       | Dasatinib                        | Block Src family tyrosine kinases |
-| **MEK inhibitors**       | Trametinib                       | Inhibit MAPK/ERK pathway |
-| **Proteasome inhibitors**| MG-132                           | Prevent protein degradation |
-| **HSP90 inhibitors**     | Geldanamycin                     | Destabilize oncogenic proteins |
+### 🔹 Top 10 Compounds
+
+| Rank | Compound                          | Mechanism of Action (MoA)        | τ Score |
+|------|-----------------------------------|-----------------------------------|---------|
+| 1    | PKC activator (class)             | Protein kinase C activation       | –98.45  |
+| 2    | Prostratin                        | PKC activator                     | –97.89  |
+| 3    | Avrainvillamide-analog-3          | Nucleophosmin inhibitor           | –97.43  |
+| 4    | Ingenol                           | PKC activator                     | –97.37  |
+| 5    | Phorbol-12-myristate-13-acetate   | PKC activator                     | –96.58  |
+| 6    | ON-01910 (Rigosertib)             | PLK inhibitor                     | –96.43  |
+| 7    | Scoulerine                        | Adrenergic receptor antagonist    | –96.21  |
+| 8    | Vinorelbine                       | Tubulin inhibitor                 | –95.17  |
+| 9    | MLN-8054                          | Aurora kinase inhibitor           | –94.80  |
+| 10   | SB-216763                         | Glycogen synthase kinase inhibitor| –94.68  |
+
+---
 
 ### 🔹 Interpretation
-- **PKC activators** and **HDAC inhibitors** emerged as the **strongest reversal classes**, suggesting that altering transcriptional and epigenetic states may counteract colorectal tumor programs.  
-- Multiple independent **kinase inhibitors (EGFR, PI3K, MEK, SRC, Aurora)** also scored highly, consistent with the known dependence of colorectal cancer on signaling pathways controlling cell growth and survival.  
-- Together, these results provide a **shortlist of candidate compounds and drug classes** for further validation in colorectal cancer models.
+- **PKC activators** dominate the top hits (Prostratin, Ingenol, PMA), suggesting **PKC signaling modulation** strongly reverses the tumor gene signature.  
+- **Cell cycle/mitotic inhibitors** (Aurora kinase inhibitor MLN-8054, PLK inhibitor ON-01910, tubulin inhibitor Vinorelbine) also ranked highly, consistent with the proliferative nature of colorectal tumors.  
+- **Metabolic & structural agents** like scoulerine and avrainvillamide analogs appeared, though these remain less characterized.  
+- Several compounds (Vinorelbine, Rigosertib) are clinically relevant, highlighting potential for repurposing.  
 
 ---
 
-### 📊 Visual Summary
-- **Volcano Plot:** Clear separation of upregulated (red) vs downregulated (blue) genes.  
-- **CMap Results:** Multiple drug classes with strong negative connectivity, led by PKC activators and HDAC inhibitors.  
+## ⚠️ Limitations & Biological Context
 
-This pipeline demonstrates how **transcriptomic signatures** from patient-matched tumor/normal samples can be leveraged to identify **drug repurposing opportunities** using CMap.
+1. **CMap limitations**  
+   - Signatures derived from **immortalized cell lines**, not patient tissue.  
+   - Gene expression reversal does not always predict therapeutic efficacy.  
 
+2. **Statistical considerations**  
+   - τ scores are rank-based and relative.  
+   - Multiple testing across thousands of compounds → false positives possible.  
+
+3. **Biological context**  
+   - **PKC signaling** is dysregulated in colorectal cancer, making PKC modulators biologically plausible.  
+   - **Mitotic checkpoint disruption** (Aurora/PLK inhibition) aligns with known vulnerabilities of rapidly dividing tumor cells.  
+   - **Tubulin inhibitors** (e.g., Vinorelbine) are already part of clinical chemotherapy regimens, supporting the validity of CMap predictions.  
+
+4. **Need for validation**  
+   - Computational predictions should be followed by:  
+     - **In vitro assays** (CRC cell lines, organoids)  
+     - **Cross-validation with PRISM cell viability datasets**  
+     - **Literature review of each compound in colorectal cancer context**  
+
+---
+
+## 🔮 Roadmap
+- [x] Download and preprocess GEO dataset  
+- [x] Run DEG analysis (tumor vs normal)  
+- [x] Generate volcano plot + DEG summary  
+- [x] Submit signature to CMap (Touchstone 1.0)  
+- [x] Summarize top compounds and MoAs  
+- [ ] Annotate FDA-approved vs experimental compounds  
+- [ ] Cross-check hits with PRISM viability data  
+- [ ] Add literature review for top candidates  
+- [ ] Propose validation experiments  
+
+---
 
 ## ⚙️ Reproducibility
-All analysis is done in R (v4.x).  
-Required packages can be installed with:
+All analysis performed in **R (v4.x)**.  
+
+Install required packages:
 
 ```r
 if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
