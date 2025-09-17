@@ -132,16 +132,16 @@ This analysis identified **PKC pathway modulation** as a priority therapeutic st
 
 ---
 
-## 🔮 Roadmap
+## 🔮 Project Completion
 - [x] Download and preprocess GEO dataset  
-- [x] Run DEG analysis (tumor vs normal)  
-- [x] Generate volcano plot + DEG summary  
-- [x] Submit signature to CMap (Touchstone 1.0)  
-- [x] Summarize top compounds and MoAs  
-- [ ] Annotate FDA-approved vs experimental compounds  
-- [ ] Cross-check hits with PRISM viability data  
-- [ ] Add literature review for top candidates  
-- [ ] Propose validation experiments  
+- [x] Run differential expression analysis (tumor vs normal)  
+- [x] Generate volcano plot and DEG summary  
+- [x] Submit gene signature to CMap
+- [x] Analyze top 10 candidate compounds with connectivity scores  
+- [ ] Literature validation of top 3 compounds in colorectal cancer
+- [ ] Cross-reference findings with existing CRC therapeutic targets
+- [ ] Document limitations and future experimental directions
+- [ ] Finalize project report and code repository
 
 ---
 
