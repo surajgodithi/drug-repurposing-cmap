@@ -59,7 +59,7 @@ The goal is to identify **differentially expressed genes (DEGs)** between **tumo
 
 ## 🧪 Detailed Results Analysis (CMap)
 
-We submitted the DEG signature to **CMap (Touchstone 1.0)**.  
+I submitted the DEG signature to **CMap (Touchstone 1.0)**.  
 CMap compares our tumor profile against thousands of **drug-induced gene expression signatures**.  
 - **Compounds tested:** ~2,400  
 - **Output metric:** Connectivity score (τ), ranges from +100 (mimics tumor) to –100 (reverses tumor)  
